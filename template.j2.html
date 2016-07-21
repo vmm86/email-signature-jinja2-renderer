@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="width: 100%;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<style type="text/css">
+#signature {
+    border-collapse: collapse {% if test_tags == 'important' %}!important{% endif %};
+    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
+    font-style: normal {% if test_tags == 'important' %}!important{% endif %};
+    font-weight: normal {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    margin: 0 {% if test_tags == 'important' %}!important{% endif %};
+}
+table, table, table tr td {
+    border: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 {% if test_tags == 'important' %}!important{% endif %};
+    padding-bottom: 1px {% if test_tags == 'important' %}!important{% endif %};
+    white-space: nowrap {% if test_tags == 'important' %}!important{% endif %};
+}
+img {
+    margin: 0 {% if test_tags == 'important' %}!important{% endif %};
+    vertical-align: middle {% if test_tags == 'important' %}!important{% endif %};
+}
+.name {
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 3px {% if test_tags == 'important' %}!important{% endif %};
+}
+.belcanto-text {
+    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 12px {% if test_tags == 'important' %}!important{% endif %};
+}
+.bezantrakta-text {
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
+    font-weight: bold {% if test_tags == 'important' %}!important{% endif %};
+}
+.icon {
+    margin: 1px {% if test_tags == 'important' %}!important{% endif %};
+}
+a, a:link, a:hover, a:visited {
+    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 2px {% if test_tags == 'important' %}!important{% endif %};
+}
+.grey-text {
+    color: #707070 {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 2px {% if test_tags == 'important' %}!important{% endif %};
+}
+.small-text {
+    display: block {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 12px {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 3px {% if test_tags == 'important' %}!important{% endif %};
+    letter-spacing: 0.2px {% if test_tags == 'important' %}!important{% endif %};
+}
+.telephone {
+    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
+}
+.center {
+    text-align: center {% if test_tags == 'important' %}!important{% endif %};
+}
+</style>
+
+<table id="signature" border="0">
+    <tr>
+        <td colspan="3">
+            <img width="260" height="4" alt="___________________________________________" moz-do-not-send="true" 
+                src="http://bezantrakta.ru/email-signature/images_black/line.jpg">
+        </td>
+    </tr>
+    <tr>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
+            <span class="name">{{ name }}</span>
+        </td>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+    </tr>
+{% if occupation %}
+    <tr>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
+            {% if occupation %}<span class="small-text grey-text">{{ occupation }}</span>{% else %}<span class="small-text">nbsp</span>{% endif %}
+        </td>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+    </tr>
+{% endif %}
+    <tr>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
+            <a href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content={{ org_alias }}-logo" target="_blank">
+                <img width="{{ org_logo_width }}" height="{{ org_logo_height }}" alt="{{ org_title }}" moz-do-not-send="true" 
+                {% if org_alias == 'belcanto' %}
+                    src="http://bezantrakta.ru/email-signature/images_black/{{ org_alias }}.jpg"
+                {% endif %}
+                {% if org_alias == 'bezantrakta' %}
+                    src="http://bezantrakta.ru/email-signature/images_black/{{ org_alias }}.jpg"
+                {% endif %}
+                >
+            </a>
+        </td>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+    </tr>
+    <tr>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
+        {% if org_alias == 'belcanto' %}
+            <a class="{{ org_alias }}-text" href="http://bezantrakta.ru/gastroli/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=belcanto-text" target="_blank">
+                <span class="{{ org_alias }}-text">{{ org_motto }}</span>
+            </a>
+        {% endif %}
+        {% if org_alias == 'bezantrakta' %}
+            <a class="{{ org_alias }}-text grey-text" href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=bezantrakta-text" target="_blank"><span class="{{ org_alias }}-text grey-text">{{ org_motto }}</span></a>
+        {% endif %}
+        </td>
+        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+    </tr>
+{% if tel1_text or tel2_text %}
+    <tr>
+        <td>
+            <a href="tel:{{ tel1_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="tel1" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel1.jpg">
+            </a>
+        </td>
+        <td>
+            <a class="telephone" href="tel:{{ tel1_link }}" target="_blank"><span class="telephone">{{ tel1_text }} </span></a>
+        </td>
+        <td>
+            <a href="tel:{{ tel1_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="viber" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/viber.jpg">
+            </a>
+            <a href="tel:{{ tel1_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="whatsapp" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/whatsapp.jpg" style="margin-left: -6px {% if test_tags == 'important' %}!important{% endif %};">
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="tel:{{ tel2_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="tel2" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel2.jpg">
+            </a>
+        </td>
+        <td>
+            <a class="telephone" href="tel:{{ tel2_link }}" target="_blank"><span class="telephone">{{ tel2_text }}</span></a>
+        </td>
+        <td>nbsp</td>
+    </tr>
+{% else %}
+    <tr>
+        <td>
+            <a href="tel:{{ tel_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="tel" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel1.jpg">
+            </a>
+        </td>
+        <td>
+            <a class="telephone" href="tel:{{ tel_link }}" target="_blank"><span class="telephone">{{ tel_text }} </span></a>
+        </td>
+         <td>
+            <a href="tel:{{ tel_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="viber" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/viber.jpg">
+            </a>
+            <a href="tel:{{ tel_link }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="whatsapp" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/whatsapp.jpg" style="margin-left: -6px {% if test_tags == 'important' %}!important{% endif %};">
+            </a>
+         </td>
+    </tr>
+{% endif %}
+    <tr>
+        <td>
+            <a href="mailto:{{ email }}" target="_blank">
+                <img class="icon" width="34" height="23" alt="email" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/email.jpg">
+            </a>
+        </td>
+        <td>
+            <a href="mailto:{{ email }}" target="_blank"><span>{{ email }}</span></a>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td width="42" style="width: 42px;">
+            <a href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=www-icon" target="_blank">
+                <img class="icon" width="34" height="23" alt="www" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/www.jpg">
+            </a>
+        </td>
+        <td>
+            <a href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=www-text" target="_blank">
+                <span>{{ org_link }}</span>
+            </a>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<p>
+    <span class="small-text">Просьба не удалять переписку из тела письма для удобства коммуникаций</span>
+</p>
+
+</body>
+</html>

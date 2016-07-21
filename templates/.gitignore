@@ -1,0 +1,4 @@
+# Ignore all the production templates inside except the folder itself
+*
+
+!.gitignore
