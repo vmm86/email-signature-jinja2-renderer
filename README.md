@@ -25,7 +25,7 @@ This folder has 2 subfolders - `employees` and `organizations`.
 
 `employees` JSON file format:
 
-```json
+```js
 {
     // Employee's name
     "name": "Галина Нехаева",
@@ -43,7 +43,7 @@ This folder has 2 subfolders - `employees` and `organizations`.
 
 `organizations` JSON file format:
 
-```json
+```js
 {
     // Organization's title
     "org_title": "Бельканто",
