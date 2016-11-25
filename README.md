@@ -56,6 +56,8 @@ This folder has 2 subfolders - `employees` and `organizations`.
     "org_motto": "вместе мы сила!",
     // Organization's web site link
     "org_link": "gastroli.net",
+    // Message at the bottom
+    "org_footer": "Просьба не удалять переписку из тела письма для удобства коммуникаций",
  
     // Test tag to force all CSS styles to be `!important`
     // "normal"
