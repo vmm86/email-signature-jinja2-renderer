@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Узембло Максим Юрьевич",
+    "emp_occupation_ru": "Менеджер по продажам услуг сервиса",
+    "emp_department_ru": "Отдел сервиса",
+
+    "emp_name_en":       "Uzemblo Maksim Yuryevich",
+    "emp_occupation_en": "Services' sales manager",
+    "emp_department_en": "Service department",
+
+    "emp_ext_tel":    "819",
+    "emp_mob_tel":    "+7(905) 654-42-88",
+    "emp_email":      "um@scanezh.ru"
+}

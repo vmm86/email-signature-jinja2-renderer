@@ -1,0 +1,17 @@
+{
+    "renderable": true,
+
+    "org_title": "Scanezh LLC",
+    "org_alias": "scanezh",
+    "org_link": "scanezh.ru",
+    "org_email": "info@scanezh.ru",
+    "org_addr": "Voronezhskaya oblast, Ramonskiy rayon, Aydarovskoye rural settlement, Promyshlennaya st., area 6, site 7",
+    "org_tel": "+7(473) 207-00-77",
+    "org_footer": "The purpose of the present and the following emails are purely an information exchange. It should not be considered to be a legally significant communication, a representation or a decision to create, amend or terminate legally binding rights and duties of Scanezh LLC or its counterparties. Any views or opinions presented in this and following emails do not necessarily represent those of the company.",
+
+    "direction":    "external",
+    "conversation": "primary",
+    "language":     "en",
+
+    "test_tags": "important"
+}

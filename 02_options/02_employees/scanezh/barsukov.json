@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Барсуков Анатолий Геннадьевич",
+    "emp_occupation_ru": "Начальник кузовного цеха",
+    "emp_department_ru": "Кузовной цех",
+
+    "emp_name_en":       "Barsukov Anatoliy Gennadyevich",
+    "emp_occupation_en": "Head of body workshop",
+    "emp_department_en": "Body workshop",
+
+    "emp_ext_tel":    "806",
+    "emp_mob_tel":    "+7(905) 654-42-83",
+    "emp_email":      "dp@scanezh.ru"
+}

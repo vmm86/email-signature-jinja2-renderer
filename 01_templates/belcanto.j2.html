@@ -82,15 +82,15 @@ a, a:link, a:hover, a:visited {
     <tr>
         {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
         <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
-            <span class="name">{{ name }}</span>
+            <span class="name">{{ emp_name }}</span>
         </td>
         {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
     </tr>
-{% if occupation %}
+{% if emp_occupation %}
     <tr>
         {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
         <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
-            {% if occupation %}<span class="small-text grey-text">{{ occupation }}</span>{% else %}<span class="small-text">nbsp</span>{% endif %}
+            {% if emp_occupation %}<span class="small-text grey-text">{{ emp_occupation }}</span>{% else %}<span class="small-text">nbsp</span>{% endif %}
         </td>
         {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
     </tr>
@@ -125,32 +125,32 @@ a, a:link, a:hover, a:visited {
         </td>
         {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
     </tr>
-{% if tel1_text or tel2_text %}
+{% if emp_tel1_text or emp_tel2_text %}
     <tr>
         <td>
-            <a href="tel:{{ tel1_link }}" target="_blank">
+            <a href="tel:{{ emp_tel1_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="tel1" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel2.jpg">
             </a>
         </td>
         <td>
-            <a class="telephone" href="tel:{{ tel1_link }}" target="_blank"><span class="telephone">{{ tel1_text }}</span></a>
+            <a class="telephone" href="tel:{{ emp_tel1_link }}" target="_blank"><span class="telephone">{{ emp_tel1_text }}</span></a>
         </td>
         <td>nbsp</td>
     </tr>
     <tr>
         <td>
-            <a href="tel:{{ tel2_link }}" target="_blank">
+            <a href="tel:{{ emp_tel2_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="tel2" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel1.jpg">
             </a>
         </td>
         <td>
-            <a class="telephone" href="tel:{{ tel2_link }}" target="_blank"><span class="telephone">{{ tel2_text }} </span></a>
+            <a class="telephone" href="tel:{{ emp_tel2_link }}" target="_blank"><span class="telephone">{{ emp_tel2_text }} </span></a>
         </td>
         <td>
-            <a href="tel:{{ tel2_link }}" target="_blank">
+            <a href="tel:{{ emp_tel2_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="viber" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/viber.jpg">
             </a>
-            <a href="tel:{{ tel2_link }}" target="_blank">
+            <a href="tel:{{ emp_tel2_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="whatsapp" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/whatsapp.jpg" style="margin-left: -6px {% if test_tags == 'important' %}!important{% endif %};">
             </a>
         </td>
@@ -158,18 +158,18 @@ a, a:link, a:hover, a:visited {
 {% else %}
     <tr>
         <td>
-            <a href="tel:{{ tel_link }}" target="_blank">
+            <a href="tel:{{ emp_tel_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="tel" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel1.jpg">
             </a>
         </td>
         <td>
-            <a class="telephone" href="tel:{{ tel_link }}" target="_blank"><span class="telephone">{{ tel_text }} </span></a>
+            <a class="telephone" href="tel:{{ emp_tel_link }}" target="_blank"><span class="telephone">{{ emp_tel_text }} </span></a>
         </td>
          <td>
-            <a href="tel:{{ tel_link }}" target="_blank">
+            <a href="tel:{{ emp_tel_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="viber" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/viber.jpg">
             </a>
-            <a href="tel:{{ tel_link }}" target="_blank">
+            <a href="tel:{{ emp_tel_link }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="whatsapp" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/whatsapp.jpg" style="margin-left: -6px {% if test_tags == 'important' %}!important{% endif %};">
             </a>
          </td>
@@ -177,12 +177,12 @@ a, a:link, a:hover, a:visited {
 {% endif %}
     <tr>
         <td>
-            <a href="mailto:{{ email }}" target="_blank">
+            <a href="mailto:{{ emp_email }}" target="_blank">
                 <img class="icon" width="34" height="23" alt="email" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/email.jpg">
             </a>
         </td>
         <td>
-            <a href="mailto:{{ email }}" target="_blank"><span>{{ email }}</span></a>
+            <a href="mailto:{{ emp_email }}" target="_blank"><span>{{ emp_email }}</span></a>
         </td>
         <td></td>
     </tr>

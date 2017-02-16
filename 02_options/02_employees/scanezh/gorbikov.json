@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Горбиков Сергей Александрович",
+    "emp_occupation_ru": "Менеджер отдела запасных частей",
+    "emp_department_ru": "Отдел запасных частей",
+
+    "emp_name_en":       "Gorbikov Sergey Aleksandrovich",
+    "emp_occupation_en": "Spare parts department manager",
+    "emp_department_en": "Spare parts department",
+
+    "emp_ext_tel":    "814",
+    "emp_mob_tel":    "",
+    "emp_email":      "sklad@scanezh.ru"
+}

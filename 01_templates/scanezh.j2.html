@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="width: 100%;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<style type="text/css">
+#signature {
+    border-collapse: collapse {% if test_tags == 'important' %}!important{% endif %};
+    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
+    font-style: normal {% if test_tags == 'important' %}!important{% endif %};
+    font-weight: normal {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    margin: 0 {% if test_tags == 'important' %}!important{% endif %};
+}
+table, table, table tr td {
+    border: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 {% if test_tags == 'important' %}!important{% endif %};
+    padding-bottom: 1px {% if test_tags == 'important' %}!important{% endif %};
+    white-space: nowrap {% if test_tags == 'important' %}!important{% endif %};
+}
+img {
+    margin: 0 {% if test_tags == 'important' %}!important{% endif %};
+    vertical-align: middle {% if test_tags == 'important' %}!important{% endif %};
+}
+
+a, a:link, a:hover, a:visited {
+    color: inherit {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 2px 0 {% if test_tags == 'important' %}!important{% endif %};
+}
+.grey-text {
+    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 2px 0 {% if test_tags == 'important' %}!important{% endif %};
+}
+.grey-text {
+    color: #97999B {% if test_tags == 'important' %}!important{% endif %};
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 12px {% if test_tags == 'important' %}!important{% endif %};
+    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
+    padding: 2px 0 {% if test_tags == 'important' %}!important{% endif %};
+}
+.center {
+    text-align: center {% if test_tags == 'important' %}!important{% endif %};
+}
+</style>
+
+<table id="signature" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    {% if emp_name_ru or emp_name_en %}
+        <tr>
+            <td>
+                <span class="black-text">
+                    <strong>
+                    {% if   language == "ru" %}
+                        {{ emp_name_ru }}
+                    {% elif language == "en" %}
+                        {{ emp_name_en }}
+                    {% endif %}
+                    </strong>
+                    <br>&nbsp;
+                </span>
+            </td>
+        </tr>
+    {% endif %}
+    {% if emp_occupation_ru or emp_occupation_en %}
+        <tr>
+            <td>
+                <strong class="grey-text">
+                    {% if   language == "ru" %}
+                        {{ emp_occupation_ru }}
+                        {% if emp_department_ru %}&nbsp;|&nbsp;{{ emp_department_ru }}&nbsp;|&nbsp;{% else %}&nbsp;|&nbsp;{% endif %}
+                    {% elif language == "en" %}
+                        {{ emp_occupation_en }}
+                        {% if emp_department_en %}&nbsp;|&nbsp;{{ emp_department_en }}&nbsp;|&nbsp;{% else %}&nbsp;|&nbsp;{% endif %}
+                    {% endif %}
+                        {{ org_title }}
+                </strong>
+            </td>
+        </tr>
+    {% endif %}
+        <tr>
+            <td>
+                <span class="grey-text">
+                    <a class="grey-text" href="tel:{{ org_tel|replace('(', '')|replace(')', '')|replace(' ', '')|replace('-', '') }}" target="_blank">
+                    {% if   language == "ru" %}
+                        Телефон: {{ org_tel }}{% if emp_ext_tel %} (доб. {{ emp_ext_tel }}){% endif %}
+                    {% elif language == "en" %}
+                        Phone: {{ org_tel }}{% if emp_ext_tel %} (ext. {{ emp_ext_tel }}){% endif %}
+                    {% endif %}
+                    </a> 
+                {% if emp_mob_tel %}
+                    <a class="grey-text" href="tel:{{ emp_mob_tel|replace('(', '')|replace(')', '')|replace(' ', '')|replace('-', '') }}" target="_blank">
+                        {% if   language == "ru" %}
+                            Мобильный телефон: {{ emp_mob_tel }}
+                        {% elif language == "en" %}
+                            Mobile: {{ emp_mob_tel }}
+                        {% endif %}
+                    </a>
+                {% endif %}
+                </span>
+            </td>
+        </tr>
+
+{% if conversation == "primary" %}
+        <tr>
+            <td>
+                <a class="grey-text" href="https://www.google.ru/maps/place/51%C2%B054'32.5%22N+39%C2%B012'43.8%22E/@51.9087731,39.215575,1386m/data=!3m1!1e3!4m5!3m4!1s0x0:0x0!8m2!3d51.9090333!4d39.2121667?hl=ru">
+                    <span class="grey-text">
+                    {% if   language == "ru" %}
+                        Адрес: {{ org_addr }}
+                    {% elif language == "en" %}
+                        Address: {{ org_addr }}
+                    {% endif %}
+                    </span>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="grey-text">
+                {% if emp_email %}
+                    <a class="grey-text" href="mailto:{{ emp_email }}" target="_blank">{{ emp_email }}</a>
+                {% else %}
+                    <a class="grey-text" href="mailto:{{ org_email }}" target="_blank">{{ org_email }}</a>
+                {% endif %}
+                </span>
+            </td>
+        </tr>
+{% endif %}
+
+{% if direction == "external" %}
+        <tr>
+            <td>
+                <span class="grey-text">
+                    <a class="grey-text" href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-conversation&amp;utm_content=org_text" target="_blank">{{ org_link }}</a>
+                </span>
+            </td>
+        </tr>
+{% endif %}
+    </tbody>
+</table>
+
+{% if direction == "external" %}
+    <p>
+        <a class="grey-text" href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-conversation&amp;utm_content=org_logo" target="_blank">
+            <img alt="Scania" src="data:image/png;base64,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">
+        </a>
+    </p>
+
+    {% if conversation == "primary" %}
+        <p class="grey-text">{{ org_footer }}</p>
+    {% endif %}
+{% endif %}
+
+</body>
+</html>

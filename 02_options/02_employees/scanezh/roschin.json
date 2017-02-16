@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Рощин Андрей Николаевич",
+    "emp_occupation_ru": "Сервисный консультант",
+    "emp_department_ru": "Отдел сервиса",
+
+    "emp_name_en":       "Roschin Andrey Nikolaevich",
+    "emp_occupation_en": "Service consultant",
+    "emp_department_en": "Service department",
+
+    "emp_ext_tel":    "808",
+    "emp_mob_tel":    "+7(920) 225-03-00",
+    "emp_email":      "mp@scanezh.ru"
+}

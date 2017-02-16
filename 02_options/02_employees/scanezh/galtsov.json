@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Гальцов Иван Юрьевич",
+    "emp_occupation_ru": "Менеджер отдела запасных частей кузовного цеха",
+    "emp_department_ru": "Кузовной цех",
+
+    "emp_name_en":       "Galtsov Ivan Yuryevich",
+    "emp_occupation_en": "Body workshop's spare parts department manager",
+    "emp_department_en": "Body workshop",
+
+    "emp_ext_tel":    "806",
+    "emp_mob_tel":    "+7(920) 225-07-82",
+    "emp_email":      "ig@scanezh.ru"
+}

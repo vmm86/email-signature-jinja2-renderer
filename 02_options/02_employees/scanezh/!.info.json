@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       null,
+    "emp_occupation_ru": null,
+    "emp_department_ru": null,
+
+    "emp_name_en":       null,
+    "emp_occupation_en": null,
+    "emp_department_en": null,
+
+    "emp_ext_tel":    null,
+    "emp_mob_tel":    null,
+    "emp_email":      null
+}

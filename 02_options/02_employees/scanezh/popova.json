@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Попова Татьяна Борисовна",
+    "emp_occupation_ru": "Начальник отдела продаж",
+    "emp_department_ru": "Отдел продаж",
+
+    "emp_name_en":       "Popova Tatyana Borisovna",
+    "emp_occupation_en": "Head of sales",
+    "emp_department_en": "Sales department",
+
+    "emp_ext_tel":    "812",
+    "emp_mob_tel":    "+7(905) 654-42-66",
+    "emp_email":      "popova@scanezh.ru"
+}
