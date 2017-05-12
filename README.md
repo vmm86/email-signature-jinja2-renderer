@@ -14,7 +14,7 @@ premailer==3.0.1
 requests==2.13.0
 ```
 
-# Usage
+# Project Structure
 
 You should create a new virtual environment with Python 3 and install everything from `requirements.txt`.
 
@@ -23,14 +23,11 @@ and render their files simultaneously or seperately.
 
 Project has 3 main folders:
 
-1. `01_templates` - source Jinja2 templates for email subscription that contain specific logic for rendering.
+1. `01_templates` - source Jinja2 templates for email subscription that contain specific logic for rendering. It should contain template files in the following way: `01_templates/{organization}.j2.html`.
 
-It should contain template files in the following way: `01_templates/{organization}.j2.html`.
+2. `02_options` - JSON files with options for various organizations and their employees. It should contain organizations option files in the following way: `02_options/organizations/{organization}/{organization}.json` and employees option files in the following way: `02_options/employees/{organization}/{employee}.json`.
 
-2. `02_options` - JSON files with options for various organizations and their employees.
-
-It should contain organizations option files in the following way: `02_options/organizations/{organization}/{organization}.json`.
-It should contain employees option files in the following way: `02_options/employees/{organization}/{employee}.json`.
+3. `03_output` - output HTML files with rendered templates. It would contain output files in the following way: `03_output/{organization}/{employee}_{organization}.html`.
 
 `{organization}` JSON file format:
 
@@ -80,12 +77,11 @@ to render different files with slightly different options.
     "emp_email":   "dp@scanezh.ru"
 }
 ```
+# Usage
 
-3. `03_output` - output HTML files with rendered templates.
+Prepare all the source data and simply run `python render.py`.
 
-It would contain output files in the following way: `03_output/{organization}/{employee}_{organization}.html`.
-
-Prepare all the source data and simply run `render.py`. It does the following steps:
+It does the following steps:
 
 1. Takes business data from different JSON files stored recursively in `02_options` folder.
 
