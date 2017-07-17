@@ -39,7 +39,7 @@ for tpl in os.listdir(tpl_path):
             org_file = os.path.abspath(os.path.join(org_path, org))
             current_org = json.load(open(org_file, 'r'))
         # Process renderable organization data only
-        if current_org['renderable'] == True:
+        if current_org['renderable'] is True:
             # Check or create organization folder for output
             org_output = os.path.join(os.getcwd(), out_folder, tpl_name)
             os.makedirs(org_output, mode=0o755, exist_ok=True)
@@ -59,7 +59,7 @@ for tpl in os.listdir(tpl_path):
 
             # Inline CSS styles
             current_tpl = premailer.Premailer(
-                current_tpl, 
+                current_tpl,
                 keep_style_tags=True,
                 include_star_selectors=True,
                 capitalize_float_margin=True,
@@ -70,7 +70,7 @@ for tpl in os.listdir(tpl_path):
 
             # Prettify result a little bit
             current_tpl = current_tpl.replace(
-                'align="center !important"', 
+                'align="center !important"',
                 'align="center"'
             ).replace(
                 'valign="middle !important"',

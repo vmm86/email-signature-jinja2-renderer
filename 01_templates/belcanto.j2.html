@@ -19,7 +19,6 @@
 table, table, table tr td {
     border: none {% if test_tags == 'important' %}!important{% endif %};
     padding: 0 {% if test_tags == 'important' %}!important{% endif %};
-    padding-bottom: 1px {% if test_tags == 'important' %}!important{% endif %};
     white-space: nowrap {% if test_tags == 'important' %}!important{% endif %};
 }
 img {
@@ -28,8 +27,15 @@ img {
 }
 .name {
     font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
-    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
-    padding: 0 3px {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 14px {% if test_tags == 'important' %}!important{% endif %};
+    font-weight: bold {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 4px {% if test_tags == 'important' %}!important{% endif %};
+}
+.occupation {
+    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
+    font-size: 14px {% if test_tags == 'important' %}!important{% endif %};
+    font-weight: normal {% if test_tags == 'important' %}!important{% endif %};
+    padding: 0 4px {% if test_tags == 'important' %}!important{% endif %};
 }
 .belcanto-text {
     color: #000000 {% if test_tags == 'important' %}!important{% endif %};
@@ -42,6 +48,10 @@ img {
     font-weight: bold {% if test_tags == 'important' %}!important{% endif %};
 }
 .icon {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 6px;
     margin: 1px {% if test_tags == 'important' %}!important{% endif %};
 }
 a, a:link, a:hover, a:visited {
@@ -67,143 +77,122 @@ a, a:link, a:hover, a:visited {
     font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
     font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
 }
+.text-link {
+    padding: 4px 0 {% if test_tags == 'important' %}!important{% endif %};
+}
 .center {
     text-align: center {% if test_tags == 'important' %}!important{% endif %};
 }
 </style>
 
 <table id="signature" border="0">
+{#
     <tr>
-        <td colspan="3">
-            <img width="260" height="4" alt="___________________________________________" moz-do-not-send="true" 
-                src="http://bezantrakta.ru/email-signature/images_black/line.jpg">
+        <td colspan="5">
+            <img width="260" height="4" alt="___________________________________________" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/line.jpg">
         </td>
     </tr>
+#}
     <tr>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
-        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
+        <td width="36">nbsp</td>
+        <td class="center" colspan="3" align="center">
             <span class="name">{{ emp_name }}</span>
         </td>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td width="36">nbsp</td>
     </tr>
 {% if emp_occupation %}
     <tr>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
-        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
-            {% if emp_occupation %}<span class="small-text grey-text">{{ emp_occupation }}</span>{% else %}<span class="small-text">nbsp</span>{% endif %}
+        <td>nbsp</td>
+        <td class="center" colspan="3" align="center">
+            {% if emp_occupation %}<span class="occupation">{{ emp_occupation }}</span>{% else %}<span class="occupation">nbsp</span>{% endif %}
         </td>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td>nbsp</td>
     </tr>
 {% endif %}
     <tr>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
-        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
+        <td>nbsp</td>
+        <td class="center" colspan="3" align="center">
             <a href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content={{ org_alias }}-logo" target="_blank">
-                <img width="{{ org_logo_width }}" height="{{ org_logo_height }}" alt="{{ org_title }}" moz-do-not-send="true" 
-                {% if org_alias == 'belcanto' %}
-                    src="http://bezantrakta.ru/email-signature/images_black/{{ org_alias }}.jpg"
-                {% endif %}
-                {% if org_alias == 'bezantrakta' %}
-                    src="http://bezantrakta.ru/email-signature/images_black/{{ org_alias }}.jpg"
-                {% endif %}
+                <img width="{{ org_logo_width }}" height="{{ org_logo_height }}" alt="{{ org_title }}" moz-do-not-send="true" src="data:image/png;base64,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"
                 >
             </a>
         </td>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td>nbsp</td>
     </tr>
     <tr>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
-        <td{% if org_alias == 'belcanto' %} class="center" align="center"{% endif %}{% if org_alias == 'bezantrakta' %} colspan="3"{% endif %}>
-        {% if org_alias == 'belcanto' %}
-            <a class="{{ org_alias }}-text" href="http://bezantrakta.ru/gastroli/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=belcanto-text" target="_blank">
-                <span class="{{ org_alias }}-text">{{ org_motto }}</span>
+        <td>nbsp</td>
+        <td class="center" align="center">
+            <a href="https://vk.com/belcantoconcert" target="_blank">
+                <img class="icon" width="36" height="36" alt="tel" moz-do-not-send="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAn1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3kz5EAAAANHRSTlMAUDiSPPtB3cS4WBJmU05K98lFCs5jXAMa8/DVsZqGai8G6WAjHhftqAzlvaB5bUcpjHEy0LqlJgAAA2ZJREFUeNrt3Itu2kAQheEDtTGEADY2NfcCTUq4hNJ03v/ZehdSpaW7tqUZVed7gx9Yr7UeDCIiIiIiIiIiIiIiIiIiIiIiak6/FWY4jjafStjTlgriZLkefIIpbalssd7AjrbUUUxyGNGWenaXLUxoS11JBxZEUt/Kwu8rkgZkBq5gkTQheUYgoyGSqH8nkTSju0UQsyGyRhC7IfEGIeyGyAmqOtKYCAEsh7wggOWQ9AB/lkNkAH+mQ95BkTtkXxRZt3vqfdctjrHPpghFHc/Pd7t5f57LfXso8A+5yR+PcleOAAohN/2e3POMAKoh2J7kjicE0A3BdG40ZBwYgrXRn1ZwyEbc+vCnHoK5uMQIoB9SiMsRAfRDejZ39iZDVlD0OTikKy6P8GcgJBGXK/zph+SxOCQIoB8yNnogNAoNWYlD/IQQ2iHPqc2zh9CQsicO6ROC6IaUK3F5RRjVkOtJXE4lwuiF5KOXWFwWfShzhyzHnU7003jw+LrKUnFLptA2kgYU+h0YSn0vB+irH5J+gAW1Q7IrTKgZMr+UsKFeSPwAK4ZST3FR30F+aUld6fLBwghHSxqw/6K/kbSkEbP1AUGshogkEVQNpCnxBQEMh4h8gT/TISFPQ22HBBykGA+RCTxZD0k3UOIOiWf73TFJFj+etnezRTITH4stdAz8V27+NHxd/jPnDToeAi9B22FP7trlCKAQchMt5DtrDxcqhCB/MTiREhZyOzh1i/vwYSIE/Z24teDDRggu5m65KoYcZuK0hA8jIViK0wI+rIS8idMcPqyEDMWthIL3FUPa1mZrqoZ8FbcpPFgJaVsb26oaMrI2SFc15MP/EnL+T9ZIeRS3LTwYCflsbiC7YkhX3DJo+BgYclvqxgbpKoWMU3tnW1VCJqnBCfnwkE1PvrN2Fx8a0n/4k2FtTOhOyBa4OUw3w7dzEcu/xFOomMgdcTqbzef73XwWm/8T30SaFV/hxXzICn6sh+z68GM9ZAhPxkO+QM2jNKhXwpfpkOwAb5ZDspCFbjhkmSOA3ZB1iRBWQ3YjhDEactYfo2siJIug74PUVQxgQc2QeGnj7Vr1QuLsTf3dR/VDktVHOxWVQtKke34d6Y+V/uVTO8TX67P+hZaIiIiIiIiIiIiIiIiIiIiIiIjot2+XQDMvzrQJ6gAAAABJRU5ErkJggg==">
             </a>
-        {% endif %}
-        {% if org_alias == 'bezantrakta' %}
-            <a class="{{ org_alias }}-text grey-text" href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=bezantrakta-text" target="_blank"><span class="{{ org_alias }}-text grey-text">{{ org_motto }}</span></a>
-        {% endif %}
         </td>
-        {% if org_alias == 'belcanto' %}<td>nbsp</td>{% endif %}
+        <td class="center" align="center">
+            <a href="https://www.facebook.com/belcantogastroli" target="_blank">
+                <img class="icon" width="36" height="36" alt="tel" moz-do-not-send="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAh1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD3YishAAAALHRSTlMANmC7fL/1MeAN8K2USB361sucbGUSB+vktIyHcF9ZO9nDp6N+dk9B9ykoAmauG9oAAAHISURBVHja7NpJboNAEIXhZ4OYzWA8z3OipO5/viibWLFBtHpV3XrfDf4FRTUNiIiIiIiIiIiIiIiIiIiIPJFOwss5yT6rKFsuV3UT5NPt7nAsv+GSdBZU0q065bfHHE6YbzMZMIUD9ksZVEC9NBcDM2hX1mLiCOXKRIxof9rnJzGygm6Ls5gJoNtGDG2g2kh+eTC0AjE1gmaxGEuhWSGmEqi2ElNraBaL+DG0WjE2hmZT8WRoNb4MrUz6Jfn23u7CYl1X6odWKr2uMf4s4vaq+3j4JT2yCZxylB6OdWDi6Mb+5uHmovvuIN0+4Ji9ky8/n0PGDFGGIdowRBuGaMMQbRiiwTp4qqVbE7yLoUwkdrwJKaGMbcgCyliGRNDmf4jD1yOWIQ20eQ1x9nLaMuQCbTpDXPw1yDLkBm0sQ1poYxlygDZDIc58Do482RkRebIzIvJkZ0Tkyc6Ie/iUS7cifLWDak6f2Rny0/4cVAEAAQAUc3EURP+CCgjweVuDlYnUiNSI1IjUiNSI1IjUiNSI1IjUiNSI1IjUiNSI1IjUiNSI1IjUiNSI1IjUiNSI1IjUiNSI1IjUiNR8E1nzbg8AAAAAAAAAeNoBpftzlb4yt6oAAAAASUVORK5CYII=">
+            </a>
+        </td>
+        <td class="center" align="center">
+            <a href="https://www.instagram.com/belcanto_gastroli/" target="_blank">
+                <img class="icon" width="36" height="36" alt="tel" moz-do-not-send="true" src="data:image/png;base64,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">
+            </a>
+        </td>
+        <td>nbsp</td>
+    </tr>
+    <tr>
+        <td>nbsp</td>
+        <td class="text-link center" colspan="3" align="center">
+            <a href="mailto:{{ emp_email }}" target="_blank"><span>{{ emp_email }}</span></a>
+        </td>
+        <td>nbsp</td>
     </tr>
 {% if emp_tel1_text or emp_tel2_text %}
     <tr>
-        <td>
-            <a href="tel:{{ emp_tel1_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="tel1" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel2.jpg">
-            </a>
-        </td>
-        <td>
+        <td>nbsp</td>
+        <td class="text-link center" colspan="3" align="center">
             <a class="telephone" href="tel:{{ emp_tel1_link }}" target="_blank"><span class="telephone">{{ emp_tel1_text }}</span></a>
         </td>
         <td>nbsp</td>
     </tr>
     <tr>
-        <td>
-            <a href="tel:{{ emp_tel2_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="tel2" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel1.jpg">
-            </a>
-        </td>
-        <td>
+        <td>nbsp</td>
+        <td class="text-link center" colspan="3" align="center">
             <a class="telephone" href="tel:{{ emp_tel2_link }}" target="_blank"><span class="telephone">{{ emp_tel2_text }} </span></a>
         </td>
-        <td>
-            <a href="tel:{{ emp_tel2_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="viber" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/viber.jpg">
-            </a>
-            <a href="tel:{{ emp_tel2_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="whatsapp" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/whatsapp.jpg" style="margin-left: -6px {% if test_tags == 'important' %}!important{% endif %};">
-            </a>
-        </td>
+        <td>nbsp</td>
     </tr>
 {% else %}
     <tr>
-        <td>
-            <a href="tel:{{ emp_tel_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="tel" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/tel1.jpg">
-            </a>
+        <td>nbsp</td>
+        <td class="text-link center" colspan="3" align="center">
+            <a class="telephone" href="tel:{{ emp_tel_link }}" target="_blank"><span class="telephone">{{ emp_tel_text }}</span></a>
         </td>
-        <td>
-            <a class="telephone" href="tel:{{ emp_tel_link }}" target="_blank"><span class="telephone">{{ emp_tel_text }} </span></a>
-        </td>
-         <td>
-            <a href="tel:{{ emp_tel_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="viber" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/viber.jpg">
-            </a>
-            <a href="tel:{{ emp_tel_link }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="whatsapp" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/whatsapp.jpg" style="margin-left: -6px {% if test_tags == 'important' %}!important{% endif %};">
-            </a>
-         </td>
+         <td>nbsp</td>
     </tr>
 {% endif %}
     <tr>
-        <td>
-            <a href="mailto:{{ emp_email }}" target="_blank">
-                <img class="icon" width="34" height="23" alt="email" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/email.jpg">
-            </a>
+        <td>nbsp</td>
+        <td class="center" align="center">
+            {# <a href="" target="_blank"> #}
+                <img class="icon" width="36" height="36" alt="tel" moz-do-not-send="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAMAAACahl6sAAAAq1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0NbREAAAAOHRSTlMAAwrz+/fnBw/rJRoW3M66LinhtIyFWEM808iVeWcT7+TEvnFrYVId16eBdU0gmpCJSTaufaqjnzIZv4oAAAOvSURBVHja7dxncxpBDAZgXS/0Xk1vAQw4dpz3//+yZMKkYG7vluCZWzF6PsMHzd4iadEeCSGEEEIIIYQQQgghhBBCCCGEEEIIkROru2i1dvsi8RZufZyV5yPiqx3hL+9YIJ6CAy45W5sYsiu4UuoQO3YFSQbcFsV6RbJejVhpQcVZESMdF0rujtgIJ0hzIi4GSHckHqouMrSIhVdkeiIGasjmdcl8R2ioh2Q6K4KO72S6LvQY/3C9QU+fDNeAJtNL4R40fSOzRdDkBGS0MfAY2z3CGfv0XoKuIRmtAV0LMtrpUfbIHpomFhnN9qBnTob7Bi1lwxeEqAMd/jMZr4xsUZXMt0emCYc4iCrIUF4TC7GHVF/YnAAPOZcm/7L6UFsSI/EYKg1ipc34+OTSAQo+m51+ZpfZ1lgfPKtaRYdBcXLhxUWymfHl4gfDB0gkZ1+QzPtKvCg3fMn8s/hLa19VbREzXz2eZ1r6Gd7j0ZBojA5smCV4slRnEe/ETDDledB4rVh6kGxCNUVzUmc36tj1HqTooraLRAPiZv4oeZGaSOSa/tfuFUtRCY/ZZfiggUR1duPAtiIxlrmV9BQqupMpt6qLihskqhg+OXBtXUeiBrtI4oliTdg9XbH/KJHUFJH02d0vqUWKjpHb+SNVFWvi82tPFJF4bWImriNZ0yIdYVwrmtHJPJeQbLqmLIXTry+7ve9tA34fChski/aUru3gD7exyj2TFstQGNi3tJr+W5HyFc6gUOqSUuzgI6eZcyjBKxTcY5g+UmHYtUBrAJXJihK9IJm/pFztoNSIKUEfKrOY8tT2oOI1Q8WCKD6/syhHX30oRfOALk2RplKgHK3LUKs/BbeMgUUdypH9jhT1hU2/BT1kcIeUp52LFONmTGctZPsSUI46PlL159WACk3omI4oR4UpMrgONPUKlCOr5eKzlAqUp84En6U3ojyNXnEjY0f0lg5uYfDQ5PMMn6Oeex+8cPAp8n+JwbqBmxg8srPycb8SGSA8uLiXQ0bo9nCnCZnBWkS4S4VMMRq4SMLw9lb1jqTiFckk+w0y8RgMsZ58/A/HvOtC9tsYtzPylT6jloMb9XOvtJIVmx5u4cRkqkLTYVUwpii2xtC0JbOFQx86DmS8YNlDpndDN/oHLxWkO/KI46fawIGSx2pA0l72VfmD3VBhbVvClc2SzWP1r+pw5uCv+qHDMoxfrNpqsT01T29PL+zGO4UQQgghhBBCCCGEEEIIIYQQQgghxEP5AUHQkr6u1tCVAAAAAElFTkSuQmCC">
+            {# </a> #}
         </td>
-        <td>
-            <a href="mailto:{{ emp_email }}" target="_blank"><span>{{ emp_email }}</span></a>
+        <td class="center" align="center">
+            {# <a href="" target="_blank"> #}
+                <img class="icon" width="36" height="36" alt="tel" moz-do-not-send="true" src="data:image/png;base64,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">
+            {# </a> #}
         </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td width="42" style="width: 42px;">
-            <a href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=www-icon" target="_blank">
-                <img class="icon" width="34" height="23" alt="www" moz-do-not-send="true" src="http://bezantrakta.ru/email-signature/images_black/www.jpg">
-            </a>
+        <td class="center" align="center">
+            {# <a href="" target="_blank"> #}
+                <img class="icon" width="36" height="36" alt="tel" moz-do-not-send="true" src="data:image/png;base64,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">
+            {# </a> #}
         </td>
-        <td>
-            <a href="http://{{ org_link }}/?utm_source={{ org_alias }}&amp;utm_medium=email&amp;utm_campaign=email-subscription&amp;utm_content=www-text" target="_blank">
-                <span>{{ org_link }}</span>
-            </a>
-        </td>
-        <td></td>
+        <td>nbsp</td>
     </tr>
 </table>
-
+{#
 <p>
     <span class="small-text">{{ org_footer }}</span>
 </p>
-
+#}
 </body>
 </html>
