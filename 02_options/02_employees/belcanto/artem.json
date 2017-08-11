@@ -1,7 +1,8 @@
 {
     "emp_name": "Артём Шаров",
     "emp_occupation": "Концертный администратор",
-    "emp_tel_text": "+7 (960) 112 57 93",
-    "emp_tel_link": "+79601125793",
+    "emp_tel": [
+        "+7 (960) 112 57 93"
+    ],
     "emp_email": "artem@gastroli.net"
 }

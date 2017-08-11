@@ -1,12 +1,14 @@
 {
     "renderable": true,
+    "test_tags": "important",
 
     "org_title": "Бельканто",
     "org_alias": "belcanto",
     "org_logo_width": 160,
     "org_logo_height": 40,
-    "org_link": "gastroli.net",
-    "org_footer": "Просьба не удалять переписку из тела письма для удобства коммуникаций",
 
-    "test_tags": "important"
+    "org_vkontakte_link": "https://vk.com/belcantoconcert",
+    "org_facebook_link": "https://www.facebook.com/belcantogastroli",
+    "org_instagram_link": "https://www.instagram.com/belcanto_gastroli",
+    "org_link": "gastroli.net"
 }
