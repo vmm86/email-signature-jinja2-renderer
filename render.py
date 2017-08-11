@@ -1,65 +1,91 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-import jinja2
 import json
 import os
 import premailer
 import re
+from jinja2 import Environment, FileSystemLoader
 
 # Folder names
-tpl_folder = '01_templates'
-opt_folder = '02_options'
-opt_org_folder = '01_organizations'
-opt_emp_folder = '02_employees'
-out_folder = '03_output'
+opt_dir = '01_options'
+org_dir = '01_organizations'
+emp_dir = '02_employees'
+css_dir = '02_styles'
+tpl_dir = '03_templates'
+out_dir = '04_output'
 
+# File extensions
+opt_ext = 'json'
+css_ext = 'j2.json'
+tpl_ext = 'j2.html'
+out_ext = 'html'
+
+# Path to source organizations info (organization subfolders with *.json files)
+org_path = os.path.join(os.getcwd(), opt_dir, org_dir)
+# Path to source organizations employees info (organization subfolders with *.json files)
+emp_path = os.path.join(os.getcwd(), opt_dir, emp_dir)
+# Path to style info for source email subscription templates (*.j2.json files)
+css_path = os.path.join(os.getcwd(), css_dir)
 # Path to source email subscription templates (*.j2.html files)
-tpl_path = os.path.join(os.getcwd(), tpl_folder)
+tpl_path = os.path.join(os.getcwd(), tpl_dir)
+# Path to rendered signatures (*.html files)
+out_path = os.path.join(os.getcwd(), out_dir)
 
-for tpl in os.listdir(tpl_path):
-    # Open current template in Jinja2
-    tpl_name = tpl[:-8]
-    tpl_file = jinja2.Template(
-        open(os.path.join(tpl_path, tpl), 'r').read()
-    )
+for org in os.listdir(org_path):
+    print('org: ', org)
+    # Initialize context for rendering
+    context = {}
 
-    # Paths to organizations' and employees' data (*.json files)
-    org_path = os.path.join(
-        os.getcwd(), opt_folder, opt_org_folder, tpl_name
+    # Get style for current template
+    css_file_name = '{name}.{ext}'.format(name=org, ext=css_ext)
+    css_file_path = os.path.abspath(
+        os.path.join(css_path, css_file_name)
     )
-    emp_path = os.path.join(
-        os.getcwd(), opt_folder, opt_emp_folder, tpl_name
-    )
+    css_context = json.load(open(css_file_path, 'r'))
 
-    # Link with corresponding organization data
-    for org in os.listdir(org_path):
-        if org.endswith('.json'):
-            org_name = org[:-5]
-            org_file = os.path.abspath(os.path.join(org_path, org))
-            current_org = json.load(open(org_file, 'r'))
+    # Open current template
+    tpl_file_name = '{name}.{ext}'.format(name=org, ext=tpl_ext)
+    tpl = Environment(
+        loader=FileSystemLoader(tpl_path),
+        trim_blocks=True
+    ).get_template(tpl_file_name)
+
+    # Get current organization data
+    org_data_path = os.path.join(org_path, org)
+    for org_data in os.listdir(org_data_path):
+        org_data_name = org_data[:-5]
+        org_data_file_name = '{name}.{ext}'.format(name=org_data_name, ext=opt_ext)
+        org_data_file_path = os.path.abspath(
+            os.path.join(org_data_path, org_data_file_name)
+        )
+        org_context = json.load(open(org_data_file_path, 'r'))
+
         # Process renderable organization data only
-        if current_org['renderable'] is True:
+        if org_context['renderable'] is True:
             # Check or create organization folder for output
-            org_output = os.path.join(os.getcwd(), out_folder, tpl_name)
+            org_output = os.path.join(out_path, org)
             os.makedirs(org_output, mode=0o755, exist_ok=True)
 
-        # Link with corresponding employee data
-        for emp in os.listdir(emp_path):
-            if emp.endswith('.json'):
-                emp_name = emp[:-5]
-                emp_file = os.path.abspath(os.path.join(emp_path, emp))
-                current_emp = json.load(open(emp_file, 'r'))
+        # Get organization employees data
+        for emp in os.listdir(os.path.join(emp_path, org)):
+            emp_name = emp[:-5]
+            emp_file_name = '{name}.{ext}'.format(name=emp_name, ext=opt_ext)
+            emp_file_path = os.path.abspath(
+                os.path.join(emp_path, org, emp_file_name)
+            )
+            emp_context = json.load(open(emp_file_path, 'r'))
 
-            # Join current organization's and employees's data
-            current_emp.update(current_org)
+            # Fill rendering context with current style, organization and employee data
+            for c in (css_context, org_context, emp_context):
+                context.update(c)
 
-            # Render basic template
-            current_tpl = tpl_file.render(current_emp)
+            # Render template
+            tpl_rendered = tpl.render(context)
 
             # Inline CSS styles
-            current_tpl = premailer.Premailer(
-                current_tpl,
+            tpl_rendered = premailer.Premailer(
+                tpl_rendered,
                 keep_style_tags=True,
                 include_star_selectors=True,
                 capitalize_float_margin=True,
@@ -69,7 +95,7 @@ for tpl in os.listdir(tpl_path):
             ).transform()
 
             # Prettify result a little bit
-            current_tpl = current_tpl.replace(
+            tpl_rendered = tpl_rendered.replace(
                 'align="center !important"',
                 'align="center"'
             ).replace(
@@ -81,20 +107,14 @@ for tpl in os.listdir(tpl_path):
             )
 
             # Minify code
-            current_tpl = re.sub(r'^\ +', r'', current_tpl, 0, re.MULTILINE)
-            current_tpl = re.sub(r'\n',   r'', current_tpl)
+            tpl_rendered = re.sub(r'^\ +', r'', tpl_rendered, 0, re.MULTILINE)
+            tpl_rendered = re.sub(r'\n',   r'', tpl_rendered)
 
             # Save each output into a HTML file
-            if org_name == tpl_name:
-                current_output_file = (
-                    emp_name + '_' + tpl_name + '.html'
-                )
-            else:
-                current_output_file = (
-                    emp_name + '_' + org_name + '_' + tpl_name + '.html'
-                )
-
+            current_output_file = (
+                emp_name + '_' + org_data_name + '.' + out_ext
+            )
             current_output = open(
                 os.path.join(org_output, current_output_file), 'w'
             )
-            current_output.write(current_tpl)
+            current_output.write(tpl_rendered)

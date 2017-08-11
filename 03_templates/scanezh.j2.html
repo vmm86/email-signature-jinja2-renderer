@@ -5,51 +5,8 @@
 </head>
 <body>
 
-<style type="text/css">
-#signature {
-    border-collapse: collapse {% if test_tags == 'important' %}!important{% endif %};
-    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
-    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
-    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
-    font-style: normal {% if test_tags == 'important' %}!important{% endif %};
-    font-weight: normal {% if test_tags == 'important' %}!important{% endif %};
-    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
-    margin: 0 {% if test_tags == 'important' %}!important{% endif %};
-}
-table, table, table tr td {
-    border: none {% if test_tags == 'important' %}!important{% endif %};
-    padding: 0 {% if test_tags == 'important' %}!important{% endif %};
-    padding-bottom: 1px {% if test_tags == 'important' %}!important{% endif %};
-    white-space: nowrap {% if test_tags == 'important' %}!important{% endif %};
-}
-img {
-    margin: 0 {% if test_tags == 'important' %}!important{% endif %};
-    vertical-align: middle {% if test_tags == 'important' %}!important{% endif %};
-}
-
-a, a:link, a:hover, a:visited {
-    color: inherit {% if test_tags == 'important' %}!important{% endif %};
-    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
-    padding: 2px 0 {% if test_tags == 'important' %}!important{% endif %};
-}
-.grey-text {
-    color: #000000 {% if test_tags == 'important' %}!important{% endif %};
-    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
-    font-size: 16px {% if test_tags == 'important' %}!important{% endif %};
-    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
-    padding: 2px 0 {% if test_tags == 'important' %}!important{% endif %};
-}
-.grey-text {
-    color: #97999B {% if test_tags == 'important' %}!important{% endif %};
-    font-family: Arial, Helvetica, sans-serif {% if test_tags == 'important' %}!important{% endif %};
-    font-size: 12px {% if test_tags == 'important' %}!important{% endif %};
-    text-decoration: none {% if test_tags == 'important' %}!important{% endif %};
-    padding: 2px 0 {% if test_tags == 'important' %}!important{% endif %};
-}
-.center {
-    text-align: center {% if test_tags == 'important' %}!important{% endif %};
-}
-</style>
+{% from "macros/css.j2.html" import css_macro with context %}
+{{ css_macro(css) }}
 
 <table id="signature" border="0" cellpadding="0" cellspacing="0">
     <tbody>

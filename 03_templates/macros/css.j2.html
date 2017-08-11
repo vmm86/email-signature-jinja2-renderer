@@ -1,0 +1,11 @@
+{% macro css_macro(css) %}
+<style type="text/css">
+{% for selector, style in css.items() %}
+    {{ selector }} {
+    {% for attr, value in style.items() %}
+        {{ attr }}: {{ value }} {% if test_tags == 'important' %}!important{% endif %};
+    {% endfor %}
+    }
+{% endfor %}
+</style>
+{% endmacro %}
