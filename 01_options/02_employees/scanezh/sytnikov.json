@@ -1,0 +1,13 @@
+{
+    "emp_name_ru":       "Виталий Викторович Сытников",
+    "emp_occupation_ru": "Менеджер отдела продаж",
+    "emp_department_ru": "Отдел продаж",
+
+    "emp_name_en":       "Sytnikov Vitaliy Viktorovich",
+    "emp_occupation_en": "Sales manager",
+    "emp_department_en": "Sales department",
+
+    "emp_ext_tel":    "",
+    "emp_mob_tel":    "+79202250782",
+    "emp_email":      "sytnikovvv@scanezh.ru"
+}
